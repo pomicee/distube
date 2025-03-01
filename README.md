@@ -38,16 +38,16 @@ To get started, follow these simple steps:
 
 3. **Set up your `JsonFiles/config.json` file**: 
 
-    Create or edit the `jSONfILES/config.json` file and add the following:
+    Create or edit the `JsonFiles/config.json` file and add the following:
 
     ```json
     {
-      "token": "YOUR_DISCORD_BOT_TOKEN",
+      "token": "",
       "color": "#000000",
-      "clientId": "YOUR_DISCORD_CLIENT_ID",
-      "SPOTIFY_CLIENT_ID": "YOUR_SPOTIFY_CLIENT_ID",
-      "SPOTIFY_CLIENT_SECRET": "YOUR_SPOTIFY_CLIENT_SECRET",
-      "LASTFM_API_KEY": "YOUR_LASTFM_API_KEY"
+      "clientId": "",
+      "SPOTIFY_CLIENT_ID": "",
+      "SPOTIFY_CLIENT_SECRET": "",
+      "LASTFM_API_KEY": ""
     }
     ```
 
@@ -61,9 +61,9 @@ Your Distube bot should now be up and running!
 
 ## Commands
 
-Here’s a list of basic commands to control Distrobot in your Discord server:
+Here’s a list of basic commands to control Distube in your Discord server:
 
-- `,play <song name or URL>` - Play a song from **YouTube**, **SoundCloud**, or **Spotify**.
+- `,play <song name or URL>` - Play a song from **SoundCloud**, or **Spotify**.
 - `,skip` - Skip the current song in the queue.
 - `,pause` - Pause the currently playing song.
 - `,resume` - Resume the paused song.
@@ -81,7 +81,6 @@ Here’s a list of basic commands to control Distrobot in your Discord server:
 
 Distrobot comes with customizable configuration options. You can change certain settings to suit your needs, such as:
 
-- **Prefix**: Change the bot command prefix from `,` to your custom choice.
 - **Autoplay Mode**: Enable or disable autoplay after a song ends.
 - **Volume**: Set the default starting volume for music playback.
 
@@ -89,7 +88,7 @@ For advanced configuration options and additional features like filter managemen
 
 ## Support
 
-If you run into any issues or have questions, feel free to reach out on the [Distube Support Server](https://discord.gg/your-support-server). We’re here to help!
+If you run into any issues or have questions, feel free to reach out on the [Distube Support Server](https://discord.gg/feaDd9h). We’re here to help!
 
 ## Contributing
 
