@@ -1,6 +1,6 @@
 # Distube
 
-**Distube** is a versatile music-playing bot powered by the [Distube](https://www.npmjs.com/package/distube) library, designed to provide seamless music streaming and control in Discord. Whether it's for personal enjoyment or creating a fun environment in your server, Distrobot supports playing music from platforms like SoundCloud, Spotify, and more.
+**Distube** is a versatile music-playing bot powered by the [Distube](https://www.npmjs.com/package/distube) library, designed to provide seamless music streaming and control in Discord. Whether it's for personal enjoyment or creating a fun environment in your server, Distube supports playing music from platforms like SoundCloud, Spotify, and more.
 
 ## Features
 
@@ -79,7 +79,7 @@ Here’s a list of basic commands to control Distube in your Discord server:
 
 ## Configuration
 
-Distrobot comes with customizable configuration options. You can change certain settings to suit your needs, such as:
+Distube comes with customizable configuration options. You can change certain settings to suit your needs, such as:
 
 - **Autoplay Mode**: Enable or disable autoplay after a song ends.
 - **Volume**: Set the default starting volume for music playback.
