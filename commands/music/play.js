@@ -1,4 +1,4 @@
-const { createErrorEmbed, createSuccessEmbed } = require('../../embed.js');
+const { EmbedBuilder } = require('discord.js');
 const axios = require('axios');
 
 module.exports = {
@@ -8,21 +8,20 @@ module.exports = {
   async execute(message, args) {
     if (!message.member.voice.channel) {
       return message.channel.send({
-        embeds: [createErrorEmbed(`${message.author} You need to be in a voice channel to play music!`)]
+        embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`${message.author} You need to be in a voice channel to play music!`)] 
       });
     }
 
     const botPermissions = message.guild.members.me.permissionsIn(message.member.voice.channel);
     if (!botPermissions.has('CONNECT') || !botPermissions.has('SPEAK')) {
       return message.channel.send({
-        embeds: [createErrorEmbed(`${message.author} I need permissions to join and speak in your voice channel!`)]
+        embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`${message.author} I need permissions to join and speak in your voice channel!`)] 
       });
     }
 
     if (!args.length) {
       return message.channel.send({
-        embeds: [createErrorEmbed(`${message.author} You need to provide a song name or URL!`)]
-      });
+        embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`${message.author} You need to provide a song name or URL!`)]
     }
 
     const query = args.join(' ');
@@ -39,7 +38,7 @@ module.exports = {
       spotifyPlaylistRegex.test(query)
     ) {
       return message.channel.send({
-        embeds: [createErrorEmbed(`${message.author} Playlists are not supported. Please provide a single song URL or search query.`)]
+        embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`${message.author} Playlists are not supported. Please provide a single song URL or search query.`)]
       });
     }
 
@@ -50,7 +49,7 @@ module.exports = {
 
     if (queue && queue.songs.length >= 50) {
       return message.channel.send({
-        embeds: [createErrorEmbed(`${message.author} The queue is full. The maximum limit is 50 songs.`)]
+        embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`${message.author} The queue is full. The maximum limit is 50 songs.`)]
       });
     }
 
@@ -78,12 +77,12 @@ module.exports = {
           message
         });
 
-        message.channel.send({ embeds: [createSuccessEmbed(`Now playing: ${songTitle}`)] });
+        message.channel.send({ embeds: [new EmbedBuilder().setColor('#00FF00').setDescription(`Now playing: ${songTitle}`)] }); 
 
       } catch (error) {
         console.error(error);
         return message.channel.send({
-          embeds: [createErrorEmbed(`Could not find the song on Deezer: ${query}.`)]
+          embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`Could not find the song on Deezer: ${query}.`)] 
         });
       }
     } else if (appleMusicRegex.test(query)) {
@@ -116,12 +115,12 @@ module.exports = {
           message
         });
 
-        message.channel.send({ embeds: [createSuccessEmbed(`Now playing: ${songTitle}`)] });
+        message.channel.send({ embeds: [new EmbedBuilder().setColor('#00FF00').setDescription(`Now playing: ${songTitle}`)] }); 
 
       } catch (error) {
         console.error(error);
         return message.channel.send({
-          embeds: [createErrorEmbed(`Could not find the song on Apple Music: ${query}.`)]
+          embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`Could not find the song on Apple Music: ${query}.`)] 
         });
       }
     } else {
@@ -136,16 +135,16 @@ module.exports = {
       } catch (error) {
         if (error.message === 'Queue limit reached') {
           return message.channel.send({
-            embeds: [createErrorEmbed(`The queue is full. The maximum limit is 50 songs.`)]
+            embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`The queue is full. The maximum limit is 50 songs.`)] 
           });
         } else if (error.errorCode === 'CANNOT_RESOLVE_SONG') {
           return message.channel.send({
-            embeds: [createErrorEmbed(`Could not find the song: ${query}.`)]
+            embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`Could not find the song: ${query}.`)] 
           });
         } else {
           console.error(error);
           return message.channel.send({
-            embeds: [createErrorEmbed(`An error occurred while trying to play the music.`)]
+            embeds: [new EmbedBuilder().setColor('#FF0000').setDescription(`An error occurred while trying to play the music.`)] 
           });
         }
       }
