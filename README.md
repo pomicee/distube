@@ -40,14 +40,12 @@ To get started, follow these simple steps:
     
     Example:
     ```json
-{
   "token": "",
   "color": "#000000",
   "clientId": "",
   "SPOTIFY_CLIENT_ID": "",
   "SPOTIFY_CLIENT_SECRET": "",
   "LASTFM_API_KEY": ""
-}
     ```
 
 4. **Start the bot**:
